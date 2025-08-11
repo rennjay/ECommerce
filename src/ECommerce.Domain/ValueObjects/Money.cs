@@ -35,5 +35,6 @@ public record Money
     }
 
     public static implicit operator decimal(Money price) => price.Value;
+    public static implicit operator Money(decimal value) => new Money(value, MoneyConstants.DefaultCurrency);
     public static implicit operator Money((decimal value, string currency) money) => new Money(money.value, money.currency ?? MoneyConstants.DefaultCurrency);
 };
